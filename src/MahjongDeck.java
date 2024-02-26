@@ -6,6 +6,9 @@
      */
 
 
+    import javax.swing.*;
+    import java.util.ArrayList;
+
     public class MahjongDeck {
         private MahjongTile[] tiles;
         private int tilesInDeck;
@@ -54,6 +57,41 @@
             // seasons
             for(int i = 0; i<4; i++){
                 tiles[tilesInDeck++] = new MahjongTile(suits[6], values[i+21]); // 1 of each of the four seasons
+            }
+        }
+        public boolean isEmpty(){
+            return tilesInDeck == 0;
+        }
+
+        public void shuffle(){
+            for(int i = 0;i<tiles.length;i++){
+                int randomIndex = (int)(Math.random()*tiles.length);
+                MahjongTile temp = tiles[i];
+                tiles[i] = tiles[randomIndex];
+                tiles[randomIndex] = temp;
+            }
+        }
+        // draw a card from the deck
+        public MahjongTile drawTile() throws IllegalArgumentException{
+            if(isEmpty()){
+                throw new IllegalArgumentException("Deck is empty");
+            }
+            return tiles[--tilesInDeck];
+        }
+        // top card of the deck
+        public ImageIcon drawTileImage() throws IllegalArgumentException{
+            if(isEmpty()){
+                throw new IllegalArgumentException("Deck is empty");
+            }
+            return new ImageIcon(tiles(--tilesInDeck).toString()) + ".png";
+        }
+
+        public MahjongTile drewFlowerSeason{
+            MahjongTile[] temp = tiles; // fix later
+            int length = temp.length;
+            MahjongTile replacement = temp[length-1];
+            for(int i = 0; i<length-1; i++){
+                temp[i] = tiles[i];
             }
         }
     }
