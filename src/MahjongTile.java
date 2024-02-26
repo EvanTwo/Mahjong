@@ -17,6 +17,7 @@ public class MahjongTile {
 
 
             public static Value getValue(int j) {
+                return Value.values[j];
             }
         }
 
