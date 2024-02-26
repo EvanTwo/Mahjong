@@ -9,10 +9,15 @@ public class MahjongTile {
         }
     enum Value
         {
-            Zero, One, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten, East, South, West, North, Red, Green, White, Spring, Summer, Autumn, Winter, Plum, Orchid, Bamboo, Chrysanthemum;
+            One, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten, East, South, West, North, Red, Green, White, Spring, Summer, Autumn, Winter, Plum, Orchid, Bamboo, Chrysanthemum;
             private static final Value[] values = Value.values();
             public static Value getSuit(int i){
                 return Value.values[i];
+            }
+
+
+            public static Value getValue(int j) {
+                return Value.values[j];
             }
         }
 
