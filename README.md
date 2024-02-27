@@ -1,4 +1,4 @@
-Goal: A simple mahjong game (multiplayer on one device or bots)
+Goal: A simple mahjong game (multiplayer on one device or bots)<br />
 Learning Objectives: Brush up on OOP, learn GUI 
 
 **Basic Features:**
