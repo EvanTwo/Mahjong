@@ -6,14 +6,18 @@
      */
 
 
+    import javax.swing.*;
+    import java.util.ArrayList;
+
     public class MahjongDeck {
         private MahjongTile[] tiles;
         private int tilesInDeck;
 
-        public MahjongDeck(){
-                tiles = new MahjongTile[144]; // 144 tiles in a deck
+        public MahjongDeck() {
+            tiles = new MahjongTile[144]; // 144 tiles in a deck
         }
-        public void reset(){
+        public void resetDeck(){
+
             MahjongTile.Suit[] suits = MahjongTile.Suit.values();
             MahjongTile.Value[] values = MahjongTile.Value.values();
             tilesInDeck = 0;
@@ -56,4 +60,41 @@
                 tiles[tilesInDeck++] = new MahjongTile(suits[6], values[i+21]); // 1 of each of the four seasons
             }
         }
+        public boolean isEmpty(){
+            return tilesInDeck == 0;
+        }
+
+        public void shuffle(){
+            for(int i = 0;i<tiles.length;i++){
+                int randomIndex = (int)(Math.random()*tiles.length);
+                MahjongTile temp = tiles[i];
+                tiles[i] = tiles[randomIndex];
+                tiles[randomIndex] = temp;
+            }
+        }
+        // draw a card from the deck
+        public MahjongTile drawTile() throws IllegalArgumentException{
+            if(isEmpty()){
+                throw new IllegalArgumentException("Deck is empty");
+            }
+            return tiles[--tilesInDeck];
+        }
+
+        public MahjongTile drewFlowerSeason{
+            MahjongTile[] temp = new MahjongTile[tiles.length-1];
+            int length = temp.length;
+            MahjongTile replacement = temp[length-1];
+            // fix this
+        }
+
+
+        /*
+        // top card of the deck
+        public ImageIcon drawTileImage() throws IllegalArgumentException{
+            if(isEmpty()){
+                throw new IllegalArgumentException("Deck is empty");
+            }
+            return new ImageIcon(tiles(--tilesInDeck).toString()) + ".png";
+        }
+        */
     }
