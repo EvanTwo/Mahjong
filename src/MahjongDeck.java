@@ -13,10 +13,11 @@
         private MahjongTile[] tiles;
         private int tilesInDeck;
 
-        public MahjongDeck(){
-                tiles = new MahjongTile[144]; // 144 tiles in a deck
+        public MahjongDeck() {
+            tiles = new MahjongTile[144]; // 144 tiles in a deck
         }
-        public void reset(){
+        public void resetDeck(){
+
             MahjongTile.Suit[] suits = MahjongTile.Suit.values();
             MahjongTile.Value[] values = MahjongTile.Value.values();
             tilesInDeck = 0;
@@ -78,6 +79,16 @@
             }
             return tiles[--tilesInDeck];
         }
+
+        public MahjongTile drewFlowerSeason{
+            MahjongTile[] temp = new MahjongTile[tiles.length-1];
+            int length = temp.length;
+            MahjongTile replacement = temp[length-1];
+            // fix this
+        }
+
+
+        /*
         // top card of the deck
         public ImageIcon drawTileImage() throws IllegalArgumentException{
             if(isEmpty()){
@@ -85,13 +96,5 @@
             }
             return new ImageIcon(tiles(--tilesInDeck).toString()) + ".png";
         }
-
-        public MahjongTile drewFlowerSeason{
-            MahjongTile[] temp = tiles; // fix later
-            int length = temp.length;
-            MahjongTile replacement = temp[length-1];
-            for(int i = 0; i<length-1; i++){
-                temp[i] = tiles[i];
-            }
-        }
+        */
     }
