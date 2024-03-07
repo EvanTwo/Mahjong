@@ -11,6 +11,10 @@ import java.util.ArrayList;
 public class MahjongDeck {
     private ArrayList<MahjongTile> tiles;
 
+    public MahjongDeck(ArrayList<MahjongTile> tiles) {
+        this.tiles = tiles;
+    }
+
        /* public MahjongDeck() { // what does this block do?
             deck = new MahjongTile[144]; // 144 tiles in a deck
         }*/
